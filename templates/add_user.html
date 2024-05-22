@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content%}
+
+  {% for message in get_flashed_messages()%}
+    {# bcz we can have mutliplt messages#}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Hey,
+      {{name}}.
+      {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+  {% if name %}
+    <h1>Hey
+      {{name}}!</h1>
+    <br/>
+    <img src="{{url_for('static',filename='images/img.jpg')}}" width="100px">
+
+    <p id="demo">NOTHING</p>
+
+  {% else %}
+    <h2>what's your name?</h2>
+    <br/>
+    <form method="post">
+      {{form.hidden_tag()}}
+      {# hidden_tag for csrf #}
+      {{form.name.label( class = "form-label")}}
+      {{form.name( class="form-control" )}}
+      <br/>
+      {{form.submit( class = "btn btn-secondary")}}
+    </form>
+  {% endif %}
+{% endblock %}

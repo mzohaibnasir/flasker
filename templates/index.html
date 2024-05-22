@@ -1,44 +1,48 @@
-<h1>hello Worlds</h1>
+{% extends 'base.html' %}
 
-<p>this is my first web page</p>
+{% block content%}
+    <h1>hello Worlds</h1>
 
-<h2>My name is {{first_name}}</h2>
+    <p>this is my first web page</p>
 
-<p>without safe: {{stuff}}</p>
+    <h2>My name is {{first_name}}</h2>
 
-<p>with safe: {{stuff| safe}}</p>
+    <p>without safe: {{stuff}}</p>
 
-<p>with striptags: {{stuff| striptags}}</p>
-<p>with title: {{stuff| title}}</p>
-<h3>Favourite pizza</h3>
-{{favourite_pizza}}
-<hr>
-<!-- ##### -->
-{% for topping in favourite_pizza %} {{topping}} </br>{% endfor %}
+    <p>with safe: {{stuff| safe}}</p>
 
-
-
-<br/><br/>
-
-{{favourite_pizza[0]}}<br/><br/>
-
-{{favourite_pizza.0|reverse}}
-
-
-<br/><br/>
-
-{{2+2}}
+    <p>with striptags: {{stuff| striptags}}</p>
+    <p>with title: {{stuff| title}}</p>
+    <h3>Favourite pizza</h3>
+    {{favourite_pizza}}
+    <hr>
+    <!-- ##### -->
+    {% for topping in favourite_pizza %} {{topping}} </br>{% endfor %}
 
 
 
-<br/><br/>
-<hr/>
+    <br/><br/>
 
-{% for topping in favourite_pizza%}
-    {% if topping == 1%}
-        {{ topping|int *99}}
-    {% else %}
-        {{topping}}
-    {% endif %}
+    {{favourite_pizza[0]}}<br/><br/>
+
+    {{favourite_pizza.0|reverse}}
+
+
+    <br/><br/>
+
+    {{2+2}}
+
+
+
+    <br/><br/>
     <hr/>
+
+    {% for topping in favourite_pizza%}
+        {% if topping == 1%}
+            {{ topping|int *99}}
+        {% else %}
+            {{topping}}
+        {% endif %}
+        <hr/>
 {%endfor%}
+{% endblock %}

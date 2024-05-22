@@ -1,0 +1,26 @@
+{% for message in get_flashed_messages()%}
+  {# bcz we can have mutliplt messages#}
+  Hey,
+  {{name}}{{message}}
+
+{% endfor %}
+
+{% if name %}
+  <h2>
+    hi,
+    {{name}}
+  </h2>
+
+  {%else%}
+  <form method="post">
+
+    {{form.hidden_tag()}}
+    {{
+    form.name.label
+  }}
+
+    {{form.name}}
+    <br/>
+    {{form.submit()}}
+  </form>
+  {% endif%}
